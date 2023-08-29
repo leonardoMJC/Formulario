@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário em JS</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br>
+        <span id="senhaErro" style="color: red;"></span><br><br>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <script>
+        const form = document.getElementById('cadastroForm');
+        const senhaInput = document.getElementById('senha');
+        const senhaErro = document.getElementById('senhaErro');
+
+        form.addEventListener('submit', function(event) {
+            if (senhaInput.value.length < 6) {
+                event.preventDefault();
+                senhaErro.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+            } else {
+                senhaErro.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
